@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include ('partials/header') %>
+    <title>Libro</title>
+  </head>
+  <body>
+    <div class="container-fluid mt-4">
+      <div class="row">
+        <% books.forEach(function (book) { %>
+        <div class="col-md-4">
+          <div class="card text-white bg-dark mb-3 text-center">
+            <div class="card-header">
+              <h5 class="card-title"><%= book.nombre %></h5>
+              <div class="card-body">
+                <p class="card-text"><%= book.descripcion %></p>
+                <h5 class="card-title"><%= book.año %></h5>
+                <h5 class="card-title"><%= book.genero %></h5>
+                <h5 class="card-title"><%= book.author %></h5>
+                <button type="button" class="btn btn-danger mt-4 w-100">
+                  Borrar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include ('partials/header') %>
+    <title>Nuevo Libro</title>
+  </head>
+  <body>
+    <div class="container p-4">
+      <form method="post" action="/api/books/new-book">
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input
+            type="text"
+            name="nombre"
+            id="nombre"
+            class="form-control"
+            required />
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text">Descripcion</span>
+          <textarea
+            type="text"
+            placeholder="Escribe la Sinopsis"
+            name="descripcion"
+            id="descripcion"
+            class="form-control"
+            required
+            aria-label="Descripcion"></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="año" class="form-label">Año</label>
+          <input
+            type="text"
+            name="año"
+            id="año"
+            class="form-control"
+            required />
+        </div>
+        <div class="mb-3">
+          <label for="genero" class="form-label">Genero</label>
+          <input
+            type="text"
+            name="genero"
+            id="genero"
+            class="form-control"
+            required />
+        </div>
+        <div class="mb-3">
+          <label for="descripcion" class="form-label">Author</label>
+          <input
+            type="text"
+            name="author"
+            id="author"
+            class="form-control"
+            required />
+        </div>
+        <div class="mb-3">
+          <label for="url" class="form-label">Imagen</label>
+          <input
+            type="text"
+            placeholder="www.example.com/image"
+            name="url"
+            id="url"
+            class="form-control"
+            required />
+        </div>
+        <div class="d-grid gap-2">
+          <button type="submit" class="mt-4 btn btn-dark">Agregar Libro</button>
+          <input class="btn btn-danger" type="reset" value="Limpiar" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
