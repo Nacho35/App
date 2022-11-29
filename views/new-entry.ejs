@@ -6,7 +6,7 @@
   </head>
   <body>
     <div class="container p-4">
-      <form method="post" action="/api/books/new-book">
+      <form method="POST" action="/api/books/new-book">
         <div class="mb-3">
           <label for="nombre" class="form-label">Nombre</label>
           <input
@@ -25,12 +25,12 @@
             id="descripcion"
             class="form-control"
             required
-            aria-label="Descripcion"></textarea>
+            rows="5"></textarea>
         </div>
         <div class="mb-3">
           <label for="año" class="form-label">Año</label>
           <input
-            type="text"
+            type="number"
             name="año"
             id="año"
             class="form-control"
@@ -46,7 +46,7 @@
             required />
         </div>
         <div class="mb-3">
-          <label for="descripcion" class="form-label">Author</label>
+          <label for="author" class="form-label">Author</label>
           <input
             type="text"
             name="author"
@@ -57,7 +57,7 @@
         <div class="mb-3">
           <label for="url" class="form-label">Imagen</label>
           <input
-            type="text"
+            type="url"
             placeholder="www.example.com/image"
             name="url"
             id="url"

@@ -13,13 +13,16 @@
             <div class="card-header">
               <h5 class="card-title"><%= book.nombre %></h5>
               <div class="card-body">
+                <img class="card-img-top rounded" src="<%= book.url %>" />
                 <p class="card-text"><%= book.descripcion %></p>
                 <h5 class="card-title"><%= book.año %></h5>
                 <h5 class="card-title"><%= book.genero %></h5>
                 <h5 class="card-title"><%= book.author %></h5>
-                <button type="button" class="btn btn-danger mt-4 w-100">
-                  Borrar
-                </button>
+                <a
+                  href="/delete/<%= book.id %>"
+                  class="btn btn-danger btn-block mt-4 w-100"
+                  >Borrar</a
+                >
               </div>
             </div>
           </div>
