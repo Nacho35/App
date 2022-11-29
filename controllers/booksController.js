@@ -1,9 +1,10 @@
 const fs = require("fs");
+const { v4: uuidv4 } = require("uuid");
 
 //** Lee los datos del archivo json permitiendo agregar un nuevo dato sin quitar los que ya estaban **/
 
 const json_books = fs.readFileSync("books.json", "utf-8");
-const books = JSON.parse(json_books);
+let books = JSON.parse(json_books);
 
 //----------------------------------------------
 
@@ -28,6 +29,7 @@ const createBook = (req, res) => {
   }
 
   let newBook = {
+    id: uuidv4(),
     nombre,
     descripcion,
     año,
@@ -42,12 +44,9 @@ const createBook = (req, res) => {
   const json_books = JSON.stringify(books);
   fs.writeFileSync("books.json", json_books, "utf-8");
 
-  res.redirect("/books");
-
   //----------------------------------------------
 
   res.status(200).send("Libro Añadido Exitosamente!");
-  console.log(newBook);
   return;
 };
 
@@ -58,12 +57,16 @@ const updateBook = (req, res) => {
 
 // Peticion DELETE
 const deleteBook = (req, res) => {
-  res.status(200).send();
+  books = books.filter((books) => books.id !== req.params.id);
+  const json_books = JSON.stringify(books);
+  fs.writeFileSync("books.json", json_books, "utf-8");
+  res.status(200).send("Libro Eliminado Exitosamente");
 };
 
-// Peticion GET de un usuario
+// Peticion GET de un libro
 const oneBook = (req, res) => {
-  res.status(200).send();
+  // ! colocar logica para traer solo un libro mediante id !
+  res.status(200).render("index.ejs", { books });
 };
 
 module.exports = {
