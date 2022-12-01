@@ -65,7 +65,10 @@ const deleteBook = (req, res) => {
 
 // Peticion GET de un libro
 const oneBook = (req, res) => {
-  // ! colocar logica para traer solo un libro mediante id !
+  books = books.filter((books) => books.id === req.params.id);
+  // !! FALTA HACER QUE EL ARCHIVO JSON NO ELIMINE EL DATO SOLICITADO VIA ID !!
+  if (!books) return res.status(404).send("El Libro Solicitado No Existe.");
+
   res.status(200).render("index.ejs", { books });
 };
 
