@@ -66,7 +66,11 @@ const deleteBook = (req, res) => {
 // Peticion GET de un libro
 const oneBook = (req, res) => {
   books = books.filter((books) => books.id === req.params.id);
+
   // !! FALTA HACER QUE EL ARCHIVO JSON NO ELIMINE EL DATO SOLICITADO VIA ID !!
+  const json_books = fs.readFileSync("books.json", "utf-8");
+  const books = JSON.parse(json_books);
+
   if (!books) return res.status(404).send("El Libro Solicitado No Existe.");
 
   res.status(200).render("index.ejs", { books });
