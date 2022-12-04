@@ -6,8 +6,8 @@
   </head>
   <body>
     <div class="container p-4">
-      <form method="POST" action="/api/books/new-book">
-        <div class="mb-3">
+      <form class="card card-body" method="POST" action="new-book">
+        <div class="form-group mb-3">
           <label for="nombre" class="form-label">Nombre</label>
           <input
             type="text"
@@ -16,8 +16,8 @@
             class="form-control"
             required />
         </div>
-        <div class="input-group mb-3">
-          <span class="input-group-text">Descripcion</span>
+        <div class="mb-3">
+          <label for="descripcion" class="form-label">Descripcion</label>
           <textarea
             type="text"
             placeholder="Escribe la Sinopsis"

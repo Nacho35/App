@@ -38,6 +38,7 @@ const createBook = (req, res) => {
     url,
   };
   books.push(newBook);
+  res.status(200).send("Libro Añadido Exitosamente!");
 
   //** Guarda los datos dentro de el archivo json llamdo book.json **/
 
@@ -45,9 +46,6 @@ const createBook = (req, res) => {
   fs.writeFileSync("books.json", json_books, "utf-8");
 
   //----------------------------------------------
-
-  res.status(200).send("Libro Añadido Exitosamente!");
-  return;
 };
 
 // Peticion PUT
@@ -58,20 +56,22 @@ const updateBook = (req, res) => {
 // Peticion DELETE
 const deleteBook = (req, res) => {
   books = books.filter((books) => books.id !== req.params.id);
+
   const json_books = JSON.stringify(books);
   fs.writeFileSync("books.json", json_books, "utf-8");
+
   res.status(200).send("Libro Eliminado Exitosamente");
 };
 
 // Peticion GET de un libro
 const oneBook = (req, res) => {
-  books = books.filter((books) => books.id === req.params.id);
-
-  // !! FALTA HACER QUE EL ARCHIVO JSON NO ELIMINE EL DATO SOLICITADO VIA ID !!
   const json_books = fs.readFileSync("books.json", "utf-8");
-  const books = JSON.parse(json_books);
+  let books = JSON.parse(json_books);
 
-  if (!books) return res.status(404).send("El Libro Solicitado No Existe.");
+  if (!books)
+    return res.status(404).send({ message: "El Libro Solicitado No Existe." });
+
+  books = books.filter((books) => books.id === req.params.id);
 
   res.status(200).render("index.ejs", { books });
 };
