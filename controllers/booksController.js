@@ -50,22 +50,28 @@ const createBook = (req, res) => {
 
 // Peticion PUT
 const updateBook = (req, res) => {
+  const json_books = JSON.stringify(books);
+  fs.writeFileSync("books.json", json_books, "utf-8");
+
+  books = books.filter((books) => books.id === req.params.id);
+
   res.status(200).send({ message: "Libro Actualizado Exitosamente!" });
 };
 
 // Peticion DELETE
 const deleteBook = (req, res) => {
-  books = books.filter((books) => books.id !== req.params.id);
-
   const json_books = JSON.stringify(books);
   fs.writeFileSync("books.json", json_books, "utf-8");
 
+  books = books.filter((books) => books.id !== req.params.id);
+
   if (!books.id) {
-    return res.status(404).send({
-      message: "Libro No Eliminado No Se Encuentra O Ya A Sido Borrado.",
+    res.status(404).send({
+      message: "Libro No Eliminado No Se Encuentra o ya a Sido Borrado.",
     });
   }
-  res.status(200).send({ message: "Libro Eliminado Exitosamente" });
+
+  return res.status(200).send({ message: "Libro Eliminado Exitosamente" });
 };
 
 // Peticion GET de un libro
@@ -75,11 +81,10 @@ const oneBook = (req, res) => {
 
   books = books.filter((books) => books.id === req.params.id);
 
-  res.status(200).render("index.ejs", { books });
-
   if (!books.id) {
     res.status(404).send({ message: "El Libro Solicitado No Existe." });
   }
+  return res.status(200).render("index.ejs", { books });
 };
 
 module.exports = {
@@ -90,5 +95,3 @@ module.exports = {
   oneBook,
   formBooks,
 };
-
-// ! revisar porque desde el navegador el boton delete no funciona y el formulario no envia los datos !!
