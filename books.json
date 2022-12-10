@@ -1,1 +1,20 @@
-[{"id":"c1f775a8-f178-4ca0-8bec-a69e46d9f6cd","nombre":"nafta super","descripcion":"dsfdfsfs","año":"54565","genero":"dssdfsfdsffdf","author":"ssfsfsfsfsfsf","url":"https://www.adobe.com/express/create/cover/media_1b7327f720408f3da750167464f8cbcd74fa319c5.jpeg?width=400&format=jpeg&optimize=medium"}]
+[
+  {
+    "id": "6c777673-c600-4421-8393-134627b1798e",
+    "nombre": "nafta super",
+    "descripcion": "dsfdfsfs",
+    "año": "54565",
+    "genero": "dssdfsfdsffdf",
+    "author": "ssfsfsfsfsfsf",
+    "url": "https://www.adobe.com/express/create/cover/media_1b7327f720408f3da750167464f8cbcd74fa319c5.jpeg?width=400&format=jpeg&optimize=medium"
+  },
+  {
+    "id": "e8b8a86b-067a-4e7a-8303-f7c74ab66160",
+    "nombre": "the clicker 6",
+    "descripcion": "dsfdfsfs",
+    "año": "54565",
+    "genero": "dssdfsfdsffdf",
+    "author": "ssfsfsfsfsfsf",
+    "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuaVjRvjIZAO6XIsd0eHS22Q949ke7r-KZFg&usqp=CAU"
+  }
+]

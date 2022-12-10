@@ -7,7 +7,7 @@
   <body>
     <div class="container-fluid mt-4">
       <div class="row">
-        <% books.forEach(function (book) { %>
+        <% if (books.length > 0) { %> <% books.forEach(function(book) { %>
         <div class="col-md-4">
           <div class="card text-white bg-dark mb-3 text-center">
             <div class="card-header">
@@ -18,16 +18,25 @@
                 <h5 class="card-title"><%= book.año %></h5>
                 <h5 class="card-title"><%= book.genero %></h5>
                 <h5 class="card-title"><%= book.author %></h5>
-                <a
-                  href="/delete/<%= book.id %>"
-                  class="btn btn-danger btn-block mt-4 w-100"
-                  >Borrar</a
-                >
+                <div class="card-footer">
+                  <a
+                    href="/delete/<%= book.id %>"
+                    class="btn btn-danger btn-block mt-2"
+                    >Borrar</a
+                  >
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <% }) %>
+        <%})%> <%} else {%>
+        <div class="card card-body text-center">
+          <p>
+            No Hay Libros Todavia.
+            <a href="/books/new-entry">Agregar Un Libro</a>
+          </p>
+        </div>
+        <%}%>
       </div>
     </div>
   </body>
