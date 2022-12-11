@@ -1,20 +1,20 @@
 [
   {
-    "id": "6c777673-c600-4421-8393-134627b1798e",
-    "nombre": "nafta super",
-    "descripcion": "dsfdfsfs",
-    "año": "54565",
-    "genero": "dssdfsfdsffdf",
-    "author": "ssfsfsfsfsfsf",
-    "url": "https://www.adobe.com/express/create/cover/media_1b7327f720408f3da750167464f8cbcd74fa319c5.jpeg?width=400&format=jpeg&optimize=medium"
-  },
-  {
-    "id": "e8b8a86b-067a-4e7a-8303-f7c74ab66160",
-    "nombre": "the clicker 6",
+    "id": "21d242db-ca8d-49ca-a996-04411f964873",
+    "nombre": "the clicker 33",
     "descripcion": "dsfdfsfs",
     "año": "54565",
     "genero": "dssdfsfdsffdf",
     "author": "ssfsfsfsfsfsf",
     "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuaVjRvjIZAO6XIsd0eHS22Q949ke7r-KZFg&usqp=CAU"
+  },
+  {
+    "id": "82c2b1eb-9728-42e2-a1c0-67719c22dc65",
+    "nombre": "dragon ball z",
+    "descripcion": "dsfdfsfs",
+    "año": "54565",
+    "genero": "dssdfsfdsffdf",
+    "author": "ssfsfsfsfsfsf",
+    "url": "https://www.adobe.com/express/create/cover/media_1b7327f720408f3da750167464f8cbcd74fa319c5.jpeg?width=400&format=jpeg&optimize=medium"
   }
 ]

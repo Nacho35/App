@@ -6,8 +6,8 @@ const { booksController } = require("../controllers");
 api.get("/books", booksController.cardBooks);
 api.get("/books/new-entry", booksController.formBooks);
 api.post("/books/new-book", booksController.createBook);
-api.put("/books/:id", booksController.updateBook);
-api.delete("/delete/:id", booksController.deleteBook);
+api.get("/update/:id", booksController.updateBook);
+api.get("/delete/:id", booksController.deleteBook);
 api.get("/books/:id", booksController.oneBook);
 
 module.exports = api;

@@ -3,8 +3,7 @@ const { v4: uuidv4 } = require("uuid");
 
 //** Lee los datos del archivo json permitiendo agregar un nuevo dato sin quitar los que ya estaban **//
 
-const json_books = fs.readFileSync("books.json", "utf-8");
-let books = JSON.parse(json_books);
+let books = JSON.parse(fs.readFileSync("books.json", "utf-8"));
 
 //----------------------------------------------
 
@@ -46,14 +45,13 @@ const createBook = (req, res) => {
 
   books.push(newBook);
 
-  //** Guarda los datos dentro de el archivo json llamdo book.json **//
+  //** Guarda los datos dentro de el archivo json llamdo books.json **//
 
-  const json_books = JSON.stringify(books);
-  fs.writeFileSync("books.json", json_books, "utf-8");
+  fs.writeFileSync("books.json", JSON.stringify(books), "utf-8");
 
-  res.status(200).send({ message: "Libro Añadido Exitosamente!" });
-
-  //----------------------------------------------
+  res.status(200).render("index.ejs", {
+    books,
+  });
 };
 
 // Peticion PUT
@@ -70,10 +68,9 @@ const updateBook = (req, res) => {
   if (!book)
     return res.status(404).send({ message: "El libro no se puede actualizar" });
 
-  const json_books = JSON.stringify(books);
-  fs.writeFileSync("books.json", json_books, "utf-8");
+  fs.writeFileSync("books.json", JSON.stringify(books), "utf-8");
 
-  res.status(200).send({ message: "Libro actualizado exitosamente!" });
+  res.status(200).render("new-entry.ejs");
 };
 
 // Peticion DELETE
@@ -83,29 +80,31 @@ const deleteBook = (req, res) => {
   const book = books.find((books) => books.id === req.params.id);
 
   if (!book)
-    return res.status(404).send({ message: "El libro no se encuentra" });
+    return res
+      .status(404)
+      .send({ message: "El libro no se encuentra o fue eliminado" });
 
   //*** luego si existe el elemento lo elimina de la base de datos ***//
 
   books = books.filter((books) => books.id !== req.params.id);
 
-  const json_books = JSON.stringify(books);
-  fs.writeFileSync("books.json", json_books, "utf-8");
+  fs.writeFileSync("books.json", JSON.stringify(books), "utf-8");
 
-  res.status(200).send({ message: "Libro eliminado exitosamente" });
+  res.status(200).render("index.ejs", {
+    books,
+  });
 };
 
 // Peticion GET de un libro
 const oneBook = (req, res) => {
-  const json_books = fs.readFileSync("books.json", "utf-8");
-  let books = JSON.parse(json_books);
+  const books = JSON.parse(fs.readFileSync("books.json", "utf-8"));
 
   const book = books.find((books) => books.id === req.params.id);
 
   if (!book)
     return res.status(404).send({ message: "El libro no se Encuentra" });
 
-  res.status(200).send({ message: "Libro Encontrado Exitosamente" });
+  res.status(200).send({ book });
 };
 
 module.exports = {
