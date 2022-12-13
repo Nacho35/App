@@ -8,6 +8,10 @@ let books = JSON.parse(fs.readFileSync("books.json", "utf-8"));
 //----------------------------------------------
 
 // Peticiones GET
+const errorMessage = (req, res) => {
+  res.status(404).render("404.ejs");
+};
+
 const cardBooks = (req, res) => {
   res.status(200).render("index.ejs", {
     books,
@@ -24,7 +28,7 @@ const createBook = (req, res) => {
 
   if (!nombre || !descripcion || !año || !genero || !author || !url) {
     return res
-      .status(400)
+      .status(404)
       .send({ message: "Debes Completar Todos Los Campos" });
   }
 
@@ -114,4 +118,5 @@ module.exports = {
   deleteBook,
   oneBook,
   formBooks,
+  errorMessage,
 };
