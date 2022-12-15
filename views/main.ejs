@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include ('partials/header') %>
+    <title>Bienvenido</title>
+  </head>
+  <body>
+    <%- include ('partials/navigation')%>
+    <div class="container-fluid bg-dark text-white" style="padding: 20rem">
+      <div class="container-fluid" style="text-align: center">
+        <h1 class="display-5 fw-bold">Bienvenido a Books Storage</h1>
+        <p style="font-size: 1.5rem">
+          Un almacen de libros en donde podras almacenar toda la informacion
+          sobre cualquier libro que gustes completando tan solo un breve
+          formulario.
+        </p>
+        <a
+          href="/api/books/new-entry"
+          class="btn btn-success"
+          type="button"
+          style="width: fit-content"
+          >Continuar</a
+        >
+      </div>
+    </div>
+    <%- include ('partials/footer')%>
+  </body>
+</html>

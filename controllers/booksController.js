@@ -12,6 +12,10 @@ const errorMessage = (req, res) => {
   res.status(404).render("404.ejs");
 };
 
+const mainpage = (req, res) => {
+  res.status(200).render("main.ejs");
+};
+
 const cardBooks = (req, res) => {
   res.status(200).render("index.ejs", {
     books,
@@ -119,4 +123,5 @@ module.exports = {
   oneBook,
   formBooks,
   errorMessage,
+  mainpage,
 };

@@ -4,6 +4,7 @@ const api = express.Router();
 const { booksController } = require("../controllers");
 
 api.get("/books", booksController.cardBooks);
+api.get("/", booksController.mainpage);
 api.get("/error", booksController.errorMessage);
 api.get("/books/new-entry", booksController.formBooks);
 api.post("/books/new-book", booksController.createBook);
