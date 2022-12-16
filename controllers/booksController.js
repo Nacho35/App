@@ -28,9 +28,9 @@ const formBooks = (req, res) => {
 
 // Peticion POST
 const createBook = (req, res) => {
-  const { nombre, descripcion, año, genero, author, url } = req.body;
+  const { name, description, year, gender, author, url } = req.body;
 
-  if (!nombre || !descripcion || !año || !genero || !author || !url) {
+  if (!name || !description || !year || !gender || !author || !url) {
     return res
       .status(404)
       .send({ message: "Debes Completar Todos Los Campos" });
@@ -43,10 +43,10 @@ const createBook = (req, res) => {
 
   let newBook = {
     id,
-    nombre,
-    descripcion,
-    año,
-    genero,
+    name,
+    description,
+    year,
+    gender,
     author,
     url,
   };
@@ -66,10 +66,10 @@ const createBook = (req, res) => {
 const updateBook = (req, res) => {
   book = books.find((books) => books.id === req.params.id);
 
-  book.nombre = req.body.nombre;
-  book.descripcion = req.body.descripcion;
-  book.año = req.body.año;
-  book.genero = req.body.genero;
+  book.name = req.body.name;
+  book.description = req.body.description;
+  book.year = req.body.year;
+  book.gender = req.body.gender;
   book.author = req.body.author;
   book.url = req.body.url;
 
