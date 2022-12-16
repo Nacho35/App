@@ -7,7 +7,12 @@
   <body>
     <%- include ('partials/navigation')%>
     <div class="container p-4">
-      <form class="card card-body" method="post" action="/api/books/new-book">
+      <form
+        class="card card-body needs-validation"
+        id="forms"
+        method="post"
+        action="/api/books/new-book"
+        novalidate>
         <div class="form-group mb-3">
           <label for="name" class="form-label">Nombre</label>
           <input
@@ -66,13 +71,32 @@
             required />
         </div>
         <div class="d-grid gap-2">
-          <input
-            type="submit"
-            value="Agregar Libro"
-            class="mt-4 btn btn-dark" />
-          <input class="btn btn-danger" type="reset" value="Limpiar" />
+          <button type="submit" class="btn btn-dark m-2">Agregar Libro</button>
+          <button class="btn btn-danger m-2" type="reset">Limpiar</button>
         </div>
       </form>
+      <script>
+        (() => {
+          "use strict";
+
+          const forms = document.querySelectorAll(".needs-validation");
+
+          Array.from(forms).forEach((form) => {
+            form.addEventListener(
+              "submit",
+              (event) => {
+                if (!form.checkValidity()) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }
+
+                form.classList.add("was-validated");
+              },
+              false
+            );
+          });
+        })();
+      </script>
     </div>
     <%- include ('partials/footer')%>
   </body>
