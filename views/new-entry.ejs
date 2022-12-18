@@ -10,8 +10,6 @@
       <form
         class="card card-body needs-validation"
         id="forms"
-        method="POST"
-        action="/api/books/new-book"
         novalidate>
         <div class="form-group mb-3">
           <label for="name" class="form-label">Nombre</label>
@@ -79,22 +77,20 @@
         (() => {
           "use strict";
 
-          const forms = document.querySelectorAll(".needs-validation");
+          const form = document.querySelector(".needs-validation");
 
-          Array.from(forms).forEach((form) => {
-            form.addEventListener(
-              "submit",
-              (event) => {
-                if (!form.checkValidity()) {
-                  event.preventDefault();
-                  event.stopPropagation();
-                }
+          form.addEventListener("submit", (event) => {
+              event.preventDefault();
+              event.stopPropagation();
+              if (!form.checkValidity()) {
+              }
 
-                form.classList.add("was-validated");
-              },
-              false
-            );
-          });
+              form.classList.add("was-validated");
+              let dataForm = Object.fromEntries( new FormData(event.target))
+              const data = JSON.stringify(dataForm)
+              let url = 'http://localhost:5000/api/books/new-book' 
+              fetch(url, {  headers: {'Content-Type': 'application/json'}, method: 'POST', body: data })
+            });
         })();
       </script>
     </div>
