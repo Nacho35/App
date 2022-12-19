@@ -7,10 +7,7 @@
   <body>
     <%- include ('partials/navigation')%>
     <div class="container p-4">
-      <form
-        class="card card-body needs-validation"
-        id="forms"
-        novalidate>
+      <form class="card card-body needs-validation" id="forms" novalidate>
         <div class="form-group mb-3">
           <label for="name" class="form-label">Nombre</label>
           <input
@@ -68,9 +65,13 @@
             class="form-control"
             required />
         </div>
-        <div class="d-grid gap-2">
-          <button type="submit" class="btn btn-dark m-2">Agregar Libro</button>
-          <button class="btn btn-danger m-2" type="reset">Limpiar</button>
+        <div class="d-grid d-md-block text-center p-4">
+          <button type="submit" class="btn btn-outline-dark m-2">
+            Agregar
+          </button>
+          <button class="btn btn-outline-danger m-2" type="reset">
+            Limpiar
+          </button>
         </div>
       </form>
       <script>
@@ -80,17 +81,22 @@
           const form = document.querySelector(".needs-validation");
 
           form.addEventListener("submit", (event) => {
-              event.preventDefault();
-              event.stopPropagation();
-              if (!form.checkValidity()) {
-              }
+            event.preventDefault();
+            event.stopPropagation();
+            if (!form.checkValidity()) {
+            }
 
-              form.classList.add("was-validated");
-              let dataForm = Object.fromEntries( new FormData(event.target))
-              const data = JSON.stringify(dataForm)
-              let url = 'http://localhost:5000/api/books/new-book' 
-              fetch(url, {  headers: {'Content-Type': 'application/json'}, method: 'POST', body: data })
+            form.classList.add("was-validated");
+            let dataForm = Object.fromEntries(new FormData(event.target));
+            const data = JSON.stringify(dataForm);
+            let url = "/api/books/new-book";
+            window.location = "/api/books";
+            fetch(url, {
+              headers: { "Content-Type": "application/json" },
+              method: "POST",
+              body: data,
             });
+          });
         })();
       </script>
     </div>

@@ -29,7 +29,6 @@ const formBooks = (req, res) => {
 // Peticion POST
 const createBook = (req, res) => {
   const { name, description, year, gender, author, url } = req.body;
-  console.log(req.body);
 
   if (!name || !description || !year || !gender || !author || !url) {
     return res
