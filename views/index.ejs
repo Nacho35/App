@@ -19,18 +19,11 @@
                 <h5 class="card-title"><%= book.year %></h5>
                 <h5 class="card-title"><%= book.gender %></h5>
                 <h5 class="card-title"><%= book.author %></h5>
-                <div class="card-footer">
-                  <a
-                    href="/api/delete/<%= book.id %>"
-                    class="btn btn-danger btn-block mt-2 w-100"
-                    >Borrar</a
-                  >
-                  <a
-                    href="/api/update/<%= book.id %>"
-                    class="btn btn-success mt-2 w-100"
-                    >Editar</a
-                  >
-                </div>
+                <a
+                  href="/api/delete/<%= book.id %>"
+                  class="btn btn-outline-danger btn-md-block mt-2 w-100"
+                  >Borrar</a
+                >
               </div>
             </div>
           </div>
